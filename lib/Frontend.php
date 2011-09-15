@@ -14,7 +14,7 @@ class Frontend extends ApiFrontend {
 			)) 
 			
 		->setParent($this->pathfinder->base_location); 
-			$this->add('jUI'); 
+			$this->add('jui'); 
 			$this->js()->_load('atk4_univ'); 
 			$this->dbConnect(); 
 			/* $this->initLayout(); */
@@ -22,23 +22,15 @@ class Frontend extends ApiFrontend {
 		}// End init()
 		function page_index($page)
 				{
+					$menu = $this->add('Menu');
+      				$menu->addMenuItem('portfolio','portfolio');
+      				$menu->addMenuItem('about','about');
+      				$menu->addMenuItem('index','index');
 					
-					$this->add('BasicAuth')->allow('admin','demo')->check();
+					$this->add('p')->set('hello World!!');
+					$this->add('button')->set('pushme');
 					
-					$tabs = $page->add('Tabs');
-						$crud = $tabs->addTab('pages')->add('CRUD');
-							$crud->setModel('page', array('id', 'active', 'name', 'subhead', 'copy', 'photo'));
-								if($crud->grid)$crud->grid->addFormatter('copy','html');
-								if($crud->grid)$crud->grid->addFormatter('copy','shorttext');
-						$crud = $tabs->addTab('projects')->add('CRUD');
-							$crud->setModel('project', array('id','active','name', 'subhead', 'caption', 'category_id', 'photo'));
-								if($crud->grid)$crud->grid->addFormatter('caption','html');
-								if($crud->grid)$crud->grid->addFormatter('caption','shorttext');	
-						$crud = $tabs->addTab('categories')->add('CRUD');
-							$crud->setModel('category', array('id','name'));
-								
+					
 							
-					$menu = $this->add('Menu',null,'Menu');
-        			$menu->addMenuItem('portfolio','portfolio');							
-					}	
-		}// end API frontend
+				}
+	}// end API frontend

@@ -1,5 +1,5 @@
 <?php
 
 include '../atk4/loader.php';
-$api=new Admin('rentaladmin','default');
+$api=new Admin('admin','admin');
 $api->main();

@@ -1,8 +1,8 @@
 <?php
-class page_portfolio extends Page {
+class page_about extends Page {
     function init(){
         parent::init();
-        $this->add('H2')->set('Welcome to the porfolio');
+        $this->add('H2')->set('Welcome to the About');
       	
       	$menu = $this->add('Menu');
       	$menu->addMenuItem('portfolio','portfolio');

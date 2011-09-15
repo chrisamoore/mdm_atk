@@ -24,14 +24,36 @@ class Admin extends ApiFrontend {
             ;
 
         // Allow user: "admin", with password: "demo" to use this application
-        $this->add('BasicAuth')->allow('admin','demo')->check();
+     /*
+ 		$this->add('BasicAuth')->allow('admin','demo')->check();
 
         $menu=$this->add('Menu',null,'Menu');
         $menu->addMenuItem('Schema Generator','sg');
         $menu->addMenuItem('Manager','mgr');
+	*/
 
     }
-    function page_index($p){
-        $this->api->redirect('admin');
-    }
+       // $this->api->redirect('admin');
+       function page_index($page)
+				{
+					
+					//$this->add('BasicAuth')->allow('admin','demo')->check();
+					
+					$tabs = $page->add('Tabs');
+						$crud = $tabs->addTab('pages')->add('CRUD');
+							$crud->setModel('page', array('id', 'active', 'name', 'subhead', 'copy', 'photo'));
+								if($crud->grid)$crud->grid->addFormatter('copy','html');
+								if($crud->grid)$crud->grid->addFormatter('copy','shorttext');
+						$crud = $tabs->addTab('projects')->add('CRUD');
+							$crud->setModel('project', array('id','active','name', 'subhead', 'caption', 'category_id', 'photo'));
+								if($crud->grid)$crud->grid->addFormatter('caption','html');
+								if($crud->grid)$crud->grid->addFormatter('caption','shorttext');	
+						$crud = $tabs->addTab('categories')->add('CRUD');
+							$crud->setModel('category', array('id','name'));
+								
+							
+					$menu = $this->add('Menu',null,'Menu');
+        			$menu->addMenuItem('portfolio','portfolio');							
+					}	
+    
 }
