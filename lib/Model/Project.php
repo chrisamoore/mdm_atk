@@ -10,5 +10,6 @@ class Model_project extends Model_Table {
 		$this->addField('caption')->type('text');// text area
 		$this->addField('category_id');// can have many
 		$this->addField('photo')->refModel("Model_Filestore_File")->display("file");
+		$this->debug();
 	}
 }

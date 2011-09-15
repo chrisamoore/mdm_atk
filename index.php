@@ -14,4 +14,10 @@
 include 'atk4/loader.php';
 $api=new Frontend('sample_project','elephant');
 $api->main();
+
+/*
+$api->dbConnect();
+$api->db()->dsql()->table('page')->field('*')->do_getAllHash();
+*/
+
 ?>
