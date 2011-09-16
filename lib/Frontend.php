@@ -15,22 +15,28 @@ class Frontend extends ApiFrontend {
 			
 		->setParent($this->pathfinder->base_location); 
 			$this->add('jui'); 
-			$this->js()->_load('atk4_univ'); 
+			$this->js()->_load('atk4_univ');
+			
+			// Connect to the DB 
 			$this->dbConnect(); 
-			/* $this->initLayout(); */
+			/* $this->initLayout(); */ // Legacy 4.1.1
 		
 		}// End init()
 		function page_index($page)
 				{
-					$menu = $this->add('Menu');
-      				$menu->addMenuItem('portfolio','portfolio');
-      				$menu->addMenuItem('about','about');
-      				$menu->addMenuItem('index','index');
+					/*
+						$this->dbConnect(); 
+						// Query Pages that are active and get the tables 
+						$title = $this->api->db->dsql()->table('page')->where('active', 'Y')->field('name')->do_getAllHash(); 
+						
+						$menu = $this->add('Menu');
+      					//foreach to populate Nav from active pages in DB 
+      					foreach ($title as $t)
+      						{
+      							$menu->addMenuItem('$t', '$t');
+      						}
+      					*/
 					
-					$this->add('p')->set('hello World!!');
-					$this->add('button')->set('pushme');
-					
-					$this->dbconnect();
 							
 				}
 	}// end API frontend
