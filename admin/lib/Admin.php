@@ -11,7 +11,6 @@ class Admin extends ApiFrontend {
                     'php'=>array(
                         'lib',
                         'atk4-addons/mvc',
-                        'atk4-addons/billing/lib',
                         'atk4-addons/misc/lib',
                         )
                     ))
@@ -22,22 +21,14 @@ class Admin extends ApiFrontend {
             ->_load('atk4_univ')
             ->_load('ui.atk4_notify')
             ;
-
-        // Allow user: "admin", with password: "demo" to use this application
-     /*
- 		$this->add('BasicAuth')->allow('admin','demo')->check();
-
-        $menu=$this->add('Menu',null,'Menu');
-        $menu->addMenuItem('Schema Generator','sg');
-        $menu->addMenuItem('Manager','mgr');
-	*/
-
     }
        // $this->api->redirect('admin');
        function page_index($page)
 				{
 					
-					//$this->add('BasicAuth')->allow('admin','demo')->check();
+					// set admin theme
+					// add authorization
+					// $this->add('BasicAuth')->allow('admin','demo')->check();
 					
 					$tabs = $page->add('Tabs');
 						$crud = $tabs->addTab('pages')->add('CRUD');
@@ -52,8 +43,7 @@ class Admin extends ApiFrontend {
 							$crud->setModel('category', array('id','name'));
 								
 							
-					$menu = $this->add('Menu',null,'Menu');
-        			$menu->addMenuItem('portfolio','portfolio');							
+											
 					}	
     
 }

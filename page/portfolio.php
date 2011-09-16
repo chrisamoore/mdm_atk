@@ -3,15 +3,15 @@ class page_portfolio extends Page {
     function init(){
         parent::init();
         $page = $_GET['page'];
-        
-        $this->add('H2')->set('Welcome to the porfolio');
-        
+                
       	///Need to get menu from DB or API  
       	$menu = $this->add('Menu');
-      	$menu->addMenuItem('portfolio','portfolio');
-      	$menu->addMenuItem('about','about');
-      	$menu->addMenuItem('home','index');
+	      	$menu->addMenuItem('portfolio','portfolio');
+	      	$menu->addMenuItem('about','about');
+	      	$menu->addMenuItem('home','index');
+	      	$menu->addMenuItem('contact','contact');
       
+      	// DB Queries Perhaps a centralized DB access?
       	$subhead = $this->api->db->dsql()->table('page')->where('name', $page)->field('subhead')->do_getHash(); 
       	$name = $this->api->db->dsql()->table('page')->where('name', $page)->field('name')->do_getHash();
       	$copy = $this->api->db->dsql()->table('page')->where('name', $page)->field('copy')->do_getHash();
@@ -24,10 +24,17 @@ class page_portfolio extends Page {
 			$g->addColumn('subhead');
 			$g->setStaticSource($data);
 		*/
-		//$this->template->set($data);
+		//$this->template->set();
 		
 		$this->add('h1')->set($name);
 		$this->add('h2')->set($subhead);
 		$this->add('p')->set($copy);
+		
+		
       }
+    /*
+  function defaultTemplate(){
+     		  return array('page/Portfolio');
+    	}
+*/
 }

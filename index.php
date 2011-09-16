@@ -1,7 +1,7 @@
 <?php
  error_reporting(E_ALL);
  ini_set("display_errors", 1);
-// DO NOT ADD ANYTHING TO THIS FILE!!asdsf
+// DO NOT ADD ANYTHING TO THIS FILE!!
 
 // This is a catch-all file for your project. You can change
 // some of the values here, which are going to have affect
@@ -12,7 +12,7 @@
 // jui - this is theme. Keep it jui unless you want to make your own theme
 
 include 'atk4/loader.php';
-$api=new Frontend('sample_project','default');
+$api=new Frontend('mdm_atk','jui');
 $api->main();
 
 /*

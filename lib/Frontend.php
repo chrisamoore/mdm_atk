@@ -24,6 +24,14 @@ class Frontend extends ApiFrontend {
 		}// End init()
 		function page_index($page)
 				{
+					 	$menu = $this->add('Menu');
+					      	$menu->addMenuItem('portfolio','portfolio');
+					      	$menu->addMenuItem('about','about');
+					      	$menu->addMenuItem('home','index');
+					      	$menu->addMenuItem('contact','contact');
+			      	
+			      	$this->add('p')->set('home');
+			   
 					/*
 						$this->dbConnect(); 
 						// Query Pages that are active and get the tables 
@@ -37,6 +45,7 @@ class Frontend extends ApiFrontend {
       						}
       					*/
 					
-							
+					// Add Canvas Application here		
+					
 				}
 	}// end API frontend
