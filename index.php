@@ -12,7 +12,7 @@
 // jui - this is theme. Keep it jui unless you want to make your own theme
 
 include 'atk4/loader.php';
-$api=new Frontend('sample_project','elephant');
+$api=new Frontend('sample_project','default');
 $api->main();
 
 /*

@@ -30,7 +30,7 @@ class Frontend extends ApiFrontend {
 					$this->add('p')->set('hello World!!');
 					$this->add('button')->set('pushme');
 					
-					
+					$this->dbconnect();
 							
 				}
 	}// end API frontend
